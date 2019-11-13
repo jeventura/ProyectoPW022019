@@ -105,6 +105,9 @@ header {
 }
 
 /*Fin Botón cerrar sesón*****************************************************/
+.title-bold{
+    font-weight: bold;
+}
 
 .history-container {
     max-width: 80%;
