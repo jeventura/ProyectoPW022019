@@ -1,0 +1,81 @@
+extends layout
+block content
+    section(class="history-container")
+        div(class="table-header")
+            div(class="title-container")
+                p(Lista de strong(usuarios y administradores))
+            div(class="add-btn-box")
+                button(class="add-btn" onclick="document.getElementById('modal_id').style.display='block'">Agregar)
+        div(class="search-box")
+            form(class="search")
+                input(type="text" id="search_input" onkeyup="search()" class="fas" placeholder="Buscar....")
+        div(class="table-container")
+            table(id="table_id" class="table")
+                thead
+                    tr
+                        th(Código)
+                        th(Tipo)
+                        th(Usuario)
+                        th(Contraseña)
+                        th(Nombre)
+                        th(DUI)
+                        th(Teléfono)
+                        th(Correo)
+                        th(class="sticky">Acción)
+                tbody(id="tbody_id")
+    div(id="modal_id" class="modal")
+        form(class="modal-box modal-anim")
+            div(class="modal-content")
+                div(class="type-cred-box")
+                    div(class="user-cred-box")
+                        label(for="username")
+                            b
+                                Usuario
+                        input(class="input-form" type="text" placeholder="Usuario" id="user_name" name="username")
+                        label(for="password")
+                            b
+                                 Contraseña
+                        input(class="input-form" type="password" placeholder="Contraseña" id="pwd" name="pwd")
+                        label(for="cpassword")
+                            b
+                                 Confirmar contraseña
+                        input(class="input-form" type="password" placeholder="Contraseña" id="cpwd" name="cpwd")
+                    div(class="user-type-box")
+                        div(class="u-type")
+                            label(for="user-type")
+                                b
+                                     Tipo de usuario
+                            select(name="type" id="type")
+                                option(value="Auto")
+                                     Usuario
+                                option(value="Moto")
+                                     Administrador
+                        div(class="user-code-box")
+                            label(for="user-type-code")
+                                b
+                                     Código de usuario
+                            input(class="input-form" type="text" placeholder="Código" id="user_code" name="usercode")
+                div(class="pea-container" id="pea_info")
+                    label(for="name")
+                        b   
+                             Nombre
+                    input(class="input-form" type="text" placeholder="Nombre y apellidos" id="name" name="name")
+                    label(for="dui")
+                        b   
+                             DUI
+                    input(class="input-form" type="text" placeholder="Número de DUI" id="dui" name="doc")
+                    div(class="tel-email-box")
+                        div(class="tel-box")
+                            label(for="tel")
+                                b   
+                                     Teléfono
+                            input(class="input-form" type="text" placeholder="Numero de teléfono" id="tel" name="tel")
+                        div(class="email-box")
+                            label(for="email")
+                                b   
+                                     Correo
+                            input(class="input-form" type="text" placeholder="Correo electrónico" id="email" name="email")
+            div(class="modal-btns-box")
+                button(type="button" class="cancel-btn" onclick="document.getElementById('modal_id').style.display='none'">Cancelar)
+                button(class="enter-btn" id="enter_btn" type="button">Registrar)
+                button(class="save-btn" id="save_btn" type="submit">Guardar)
