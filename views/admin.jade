@@ -1,7 +1,7 @@
 extends layout
 block content 
 
-include headerA.jade
+
 
 section(class="history-container")
   div(class="table-header")
@@ -12,9 +12,9 @@ section(class="history-container")
   
   div(class="search-box")
     form(class="search")
-      input(type='text' placeholder='Buscar..' name='search')
+      input(type='text' placeholder='Buscar..' class="fa fa-search" name='search')
       button.btn(type='button')
-        i(class="fa fa-search")
+
   
   
   table(id="lista" class="table-container")
@@ -39,7 +39,7 @@ div(id="modal_id" class="modal")
         label(for='document') Documento
         input(id="doc" class="input-form" type='text' placeholder='Número de documento' name='doc')
       button(class="parking-btn" type='button' onclick='showHide("parking_info")') Parqueo
-        span.fas.fa-angle-down
+        span(class="fas fa-angle-down")
       div(id="parking_info.parking-container")
         div(class="information")
           div(class="type-box")
