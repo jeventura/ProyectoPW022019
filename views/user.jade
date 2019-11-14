@@ -2,21 +2,6 @@
 extends layout
 block content 
 
-header
-  .title-box
-    img.logo(src='img/uca_white.png' alt='logo')
-    h1 Historial de visitas
-  .sesion-box
-    .sesion
-      h3.hi Bienvenido: 
-      p#username.username Usuario
-    .logout
-      a(href='login.html') Cerrar sesi&oacute;n 
-  .sesion-btn
-    button.fas.fa-user(type='button' onclick='showHide("sesion_list")')
-    #sesion_list.sesion-list
-      a(href='login.html') Cerrar sesi&oacute;n
-
 section.history-container
   .table-header
     .title-container
