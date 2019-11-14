@@ -1,62 +1,45 @@
-
 extends layout
 block content 
-
-include headerU.jade
-
-section.history-container
-  .table-header
-    .title-container
-      p
-        | Lista de 
-        strong personas
-    .add-btn-box
-      button.add-btn(onclick="document.getElementById('modal_id').style.display='block'") Agregar
-  .search-box
-    form.search
-      input#search_input.fas(type='text' onkeyup='search()' placeholder='Buscar....')
-  .table-container
-    table#table_id.table
-      thead
-        tr
-          th Nombre
-          th Documento
-          th Tipo
-          th Placa
-          th Descripcion
-          th Fecha/Hora entrada
-      tbody#tbody_id
-#modal_id.modal
-  form.modal-box.modal-anim
-    .modal-content
-      #pea_info.pea-container
-        label(for='name')
-          b Nombre
-        input#name.input-form(type='text' placeholder='Nombre' name='name')
-        label(for='document')
-          b Documento
-        input#doc.input-form(type='text' placeholder='Número de documento' name='doc')
-      button.parking-btn(type='button' onclick='showHide("parking_info")')
-        | Parqueo
-        span.fas.fa-angle-down
-      #parking_info.parking-container
-        .information
-          .type-box
-            label(for='type')
-              b Tipo
-            select#type(name='type')
-              option(value='Auto') Automovil
-              option(value='Moto') Motocicleta
-          .placa-box
-            label(for='placa')
-              b Placa
-            input#placa.input-form(type='text' placeholder='Número de placa' name='placa' required='')
-        label(for='description')
-          b Descripci&oacute;n
-        textarea#description.description(name='description')
-    .modal-btns-box
-      button.cancel-btn(type='button' onclick="document.getElementById('modal_id').style.display='none'") Cancelar
-      button#enter_btn.enter-btn(type='button') Entra
-      button#save_btn.save-btn(type='submit') Guardar
-footer
-script(src='js/user.js')
+      section(class="history-container")
+          div(class="table-header")
+              div(class="title-container")
+                  p Lista de #[strong personas]
+              div(class="add-btn-box")
+                  button(class="add-btn" onclick="document.getElementById('modal_id').style.display='block'") Agrega
+          div(class="table-container")
+                table(id="table_id" class="table")
+                  thead
+                      tr
+                          th Nombre
+                          th Documento
+                          th Tipo
+                          th Placa
+                          th Descripcion
+                          th Fecha/Hora entrada
+                  tbody(id="tbody_id")
+      div(id="modal_id" class="modal")
+          form(class="modal-box modal-anim")
+              div(class="modal-content")
+                  div(class="pea-container" id="pea_info")
+                      label(class="title-bold" for="name") Nombre
+                      input(class="input-form" type="text" placeholder="Nombre" id="name" name="name" )
+                      label(class="title-bold" for="document") Documento
+                      input(class="input-form" type="text" placeholder="Número de documento" id="doc" name="doc")
+                  button(type="button" class="parking-btn" onclick='showHide("parking_info")') Parqueo
+                    span(class="fas fa-angle-down")
+                  div(class="parking-container" id="parking_info")
+                    div(class="information")
+                          div(class="type-box")
+                              label(class="title-bold" for="type") Tipo
+                              select(name="type" id="type")
+                                  option(value="Auto") Automovil
+                                  option(value="Moto") Motocicleta
+                          div(class="placa-box")
+                              label(for="placa" class="title-bold") Placa
+                              input(class="input-form" type="text" placeholder="Número de placa" id="placa" name="placa" required)
+                      label(class="title-bold" for="description") Descripción
+                      textarea(class="description" id="description" name="description")
+              div(class="modal-btns-box")
+                  button(type="button" class="cancel-btn" onclick="document.getElementById('modal_id').style.display='none'") Cancelar
+                  button(class="enter-btn" id="enter_btn" type="button") Entra
+                  button(class="save-btn" id="save_btn" type="submit") Guardar

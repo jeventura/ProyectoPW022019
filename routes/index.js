@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('sadmin.jade');
+  res.render('user.jade');
 });
 
 module.exports = router;
