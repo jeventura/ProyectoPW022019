@@ -1,14 +1,14 @@
 header
-  .title-box
-    img.logo(src='img/uca_white.png' alt='logo')
-    h1 Historial de visitas
-  .sesion-box
-    .sesion
-      h3.hi Bienvenido: 
-      p#username.username Usuario
-    .logout
+  div(class="title-box")
+    img(class="logo" src='img/uca_white.png' alt='logo')
+    h1="Historial de visitas"
+  div(class="sesion-box")
+    div(class="sesion")
+      h3(class="hi") Bienvenido: 
+      p(id="username" class="username") Usuario
+    div(class="logout")
       a(href='login.html') Cerrar sesion 
-  .sesion-btn
-    button.fas.fa-user(type='button' onclick='showHide("sesion_list")')
-    #sesion_list.sesion-list
+  div(class="sesion-btn")
+    button(class="fas fa-user" type='button' onclick='showHide("sesion_list")')
+    div(id="sesion_list" class="sesion-list")
       a(href='login.html') Cerrar sesion

@@ -3,36 +3,21 @@ block content
 
 include headerA.jade
 
-header
-  .title-box
-    img.logo(src='img/uca_white.png' alt='logo')
-    h1 Historial de visitas
-  .sesion-box
-    .sesion
-      h3.hi Bienvenido: 
-      p#username.username Usuario
-    .logout
-      a(href='login.html') Cerrar sesi&oacute;n
-  .sesion-btn
-    button.fas.fa-user(type='button' onclick='showHide("sesion_list")')
-    #sesion_list.sesion-list
-      a(href='login.html') Cerrar sesi&oacute;n
-
-section.history-container
-  .table-header
-    .title-container
-      p
-        | Lista de 
-        strong personas
-    .add-btn-box
-      button.add-btn(onclick="document.getElementById('modal_id').style.display='block'") Agregar
-  .search-box
-    form.search(action='#')
+section(class="history-container")
+  div(class="table-header")
+    div(class="title-container")
+      p Lista de #[strong personas]
+    div(class="add-btn-box")
+      button(class="add-btn" onclick="document.getElementById('modal_id').style.display='block'") Agregar
+  
+  div(class="search-box")
+    form(class="search")
       input(type='text' placeholder='Buscar..' name='search')
       button.btn(type='button')
-        i.fa.fa-search
-  .table-container
-    table#lista
+        i(class="fa fa-search")
+  
+  
+  table(id="lista" class="table-container")
       thead
         tr
           th Nombre
@@ -41,39 +26,33 @@ section.history-container
           th Placa
           th Descripcion
           th Fecha/Hora entrada
-          th.sticky Acci&oacute;n
-      tbody#tbody_id
-#modal_id.modal
-  form.modal-box.modal-anim
-    .modal-content
-      #pea_info.pea-container
-        label(for='name')
-          b Nombre
-        input#name.input-form(type='text' placeholder='Nombre' name='name')
-        label(for='document')
-          b Documento
-        input#doc.input-form(type='text' placeholder='Número de documento' name='doc')
-      button.parking-btn(type='button' onclick='showHide("parking_info")')
-        | Parqueo
+          th(class="sticky") Accion
+      tbody(id="tbody_id")
+
+div(id="modal_id" class="modal")
+  form(class="modal-box modal-anim")
+    div(class="modal-content")
+      div(id="pea_info")
+      div(class="pea-container")
+        label(for='name') Nombre
+        input(id="name" class="input-form" type='text' placeholder='Nombre' name='name')
+        label(for='document') Documento
+        input(id="doc" class="input-form" type='text' placeholder='Número de documento' name='doc')
+      button(class="parking-btn" type='button' onclick='showHide("parking_info")') Parqueo
         span.fas.fa-angle-down
-      #parking_info.parking-container
-        .information
-          .type-box
-            label(for='type')
-              b Tipo
-            select#type(name='type')
+      div(id="parking_info.parking-container")
+        div(class="information")
+          div(class="type-box")
+            label(for='type') Tipo
+            select(id="type" name='type')
               option(value='Auto') Automovil
               option(value='Moto') Motocicleta
-          .placa-box
-            label(for='placa')
-              b Placa
-            input#placa.input-form(type='text' placeholder='Número de placa' name='placa' required='')
-        label(for='description')
-          b Descripci&oacute;n
-        textarea#description.description(name='description')
-    .modal-btns-box
-      button.cancel-btn(type='button' onclick="document.getElementById('modal_id').style.display='none'") Cancelar
-      button#enter_btn.enter-btn(type='button') Entra
-      button#save_btn.save-btn(type='submit') Guardar
-footer
-script(src='js/admin.js')
+          div(class="placa-box")
+            label(for='placa') Placa
+            input(id="placa" class="input-form" type='text' placeholder='Número de placa' name='placa' required='')
+        label(for='description') Descripcion
+        textarea(id="description" class="description" name='description')
+    div(class="modal-btns-box")
+      button(class="cancel-btn" type='button' onclick="document.getElementById('modal_id').style.display='none'") Cancelar
+      button(id="enter_btn" class="enter-btn" type='button') Entra
+      button(id="save_btn" class="save-btn" type='submit') Guardar
