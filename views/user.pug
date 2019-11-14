@@ -1,0 +1,75 @@
+
+extends layout
+block content
+
+header
+  .title-box
+    img.logo(src='img/uca_white.png' alt='logo')
+    h1 Historial de visitas
+  .sesion-box
+    .sesion
+      h3.hi Bienvenido: 
+      p#username.username Usuario
+    .logout
+      a(href='login.html') Cerrar sesi&oacute;n 
+  .sesion-btn
+    button.fas.fa-user(type='button' onclick='showHide("sesion_list")')
+    #sesion_list.sesion-list
+      a(href='login.html') Cerrar sesi&oacute;n
+
+section.history-container
+  .table-header
+    .title-container
+      p
+        | Lista de 
+        strong personas
+    .add-btn-box
+      button.add-btn(onclick="document.getElementById('modal_id').style.display='block'") Agregar
+  .search-box
+    form.search
+      input#search_input.fas(type='text' onkeyup='search()' placeholder='Buscar....')
+  .table-container
+    table#table_id.table
+      thead
+        tr
+          th Nombre
+          th Documento
+          th Tipo
+          th Placa
+          th Descripcion
+          th Fecha/Hora entrada
+      tbody#tbody_id
+#modal_id.modal
+  form.modal-box.modal-anim
+    .modal-content
+      #pea_info.pea-container
+        label(for='name')
+          b Nombre
+        input#name.input-form(type='text' placeholder='Nombre' name='name')
+        label(for='document')
+          b Documento
+        input#doc.input-form(type='text' placeholder='Número de documento' name='doc')
+      button.parking-btn(type='button' onclick='showHide("parking_info")')
+        | Parqueo
+        span.fas.fa-angle-down
+      #parking_info.parking-container
+        .information
+          .type-box
+            label(for='type')
+              b Tipo
+            select#type(name='type')
+              option(value='Auto') Automovil
+              option(value='Moto') Motocicleta
+          .placa-box
+            label(for='placa')
+              b Placa
+            input#placa.input-form(type='text' placeholder='Número de placa' name='placa' required='')
+        label(for='description')
+          b Descripci&oacute;n
+        textarea#description.description(name='description')
+    .modal-btns-box
+      button.cancel-btn(type='button' onclick="document.getElementById('modal_id').style.display='none'") Cancelar
+      button#enter_btn.enter-btn(type='button') Entra
+      button#save_btn.save-btn(type='submit') Guardar
+footer
+script(src='js/user.js')
