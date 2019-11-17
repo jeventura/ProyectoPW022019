@@ -53,13 +53,13 @@ var UsuarioSchema = Schema({
 
     Telefono:{
         type: String, 
-        required: false, validate: /^\d{10}$/,
+        required: false, validate: /^\d{8}$/,
         min: [8, 'formato incorrecto'],
     },
 
     Correo:{
         type: String,
-        required: true,
+        required: false, validate:/([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}/,
         min:[12, 'Introduzca un correo electronico']
 
     }
