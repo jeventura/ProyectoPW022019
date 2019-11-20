@@ -1,5 +1,5 @@
 //obtener todo
-const User =require("./../models/User");
+const User =require("./../models/Usuario");
 
 //insertar nuevos vistantes
 const insert =(req, res)=>{

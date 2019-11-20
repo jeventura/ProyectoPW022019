@@ -1,5 +1,5 @@
 //obtener todo
-const Register =require("./../models/visitante");
+const Register =require("../models/Visitante");
 
 //insertar nuevos vistantes
 const insert =(req, res)=>{
@@ -17,7 +17,7 @@ const insert =(req, res)=>{
 };
 
 //buscar por id
-const getOneRegister= (req,res)=>{
+const getOneVisitante= (req,res)=>{
     Register.findById(req.params.id, (error, documents)=>{
         if(error)
             return res.status(500).json({
@@ -31,7 +31,7 @@ const getOneRegister= (req,res)=>{
 }
 
 //funcion de todos los registros guardados en la base
-const getRegister = (req,res)=>{
+const getVisitante = (req,res)=>{
     Register.find({}, (error, documents)=>{
         if(error)
             return res.status(500).json({
@@ -90,10 +90,9 @@ const deleteById = (req, res)=>{
 }
 
 module.exports={
-    getRegister,
+    getVisitante,
     insert,
-    getOneRegister,
+    getOneVisitante,
     update,
-    deleteById
-    
+    deleteById  
 };
