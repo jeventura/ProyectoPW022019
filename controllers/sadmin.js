@@ -1,3 +1,4 @@
+//.
 function template(locals) {
 var buf = [];
 var jade_mixins = {};
