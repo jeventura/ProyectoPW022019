@@ -44,7 +44,7 @@ var UsuarioSchema = Schema({
     },
 
     Documento: {
-        type: Number,
+        type: String,
         required: true,
         unique:true,
         min:[9, "Introduzca documento completo"]
