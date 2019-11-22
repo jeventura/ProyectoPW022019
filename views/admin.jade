@@ -1,0 +1,54 @@
+extends layout
+block content 
+  section(class="history-container")
+    div(class="table-header")
+      div(class="title-container")
+        p Lista de #[strong personas]
+      div(class="add-btn-box")
+        button(class="add-btn" onclick="document.getElementById('modal_id').style.display='block'") Agregar
+    
+    div(class="search-box")
+      form(class="search")
+        input(type='text' placeholder='Buscar..' name='search')
+        button(class=".btn(type='button')")
+          i(class="fa fa-search")
+    
+    
+    table(id="lista" class="table-container")
+        thead
+          tr
+            th Nombre
+            th Documento
+            th Tipo
+            th Placa
+            th Descripcion
+            th Fecha/Hora entrada
+            th(class="sticky") Accion
+        tbody(id="tbody_id")
+
+  div(id="modal_id" class="modal")
+    form(class="modal-box modal-anim")
+      div(class="modal-content")
+        div(class="pea-container" id="pea_info")
+          label(class="title-bold" for='name') Nombre
+          input(id="name" class="input-form" type='text' placeholder='Nombre' name='name')
+          label( class="title-bold" for='document') Documento
+          input(id="doc" class="input-form" type='text' placeholder='Número de documento' name='doc')
+        button(class="parking-btn" type='button' onclick='showHide("parking_info")') Parqueo
+          span(class=".fas.fa-angle-down")
+        div(id="parking_info" class=".parking-container")
+          div(class="information")
+            div(class="type-box")
+              label(class="title-bold" for='type') Tipo
+              select(id="type" name='type')
+                option(value='Auto') Automovil
+                option(value='Moto') Motocicleta
+            div(class="placa-box")
+              label(class="title-bold" for='placa') Placa
+              input(id="placa" class="input-form" type='text' placeholder='Número de placa' name='placa' required='')
+          label(class="title-bold" for='description') Descripcion
+          textarea(id="description" class="description" name='description')
+      div(class="modal-btns-box")
+        button(class="cancel-btn" type='button' onclick="document.getElementById('modal_id').style.display='none'") Cancelar
+        button(id="enter_btn" class="enter-btn" type='button') Entra
+        button(id="save_btn" class="save-btn" type='submit') Guardar

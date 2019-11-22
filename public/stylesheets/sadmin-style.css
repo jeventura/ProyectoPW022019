@@ -1,0 +1,748 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+header {
+    display: flex;
+    background-color: #23426B;
+    padding: 0.5rem 10%;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.title-box {
+    display: flex;
+}
+
+.title-box h1 {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+}
+
+.sesion-box {
+    float: right;
+    justify-content: flex-end;
+    padding: 1rem 0;
+}
+
+.sesion {
+    display: flex;
+}
+
+.sesion h3 {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 1rem
+}
+
+.sesion p {
+    color: azure;
+    padding: 0 0.5rem
+}
+
+.logout a {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+}
+
+.logout a:active {
+    color: gray;
+}
+
+/*Botón cerrar sesón (se muestra solo en versión smartphone y tablet)*********/
+.sesion-list {
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: 'Roboto', sans-serif;
+    position: fixed;
+    padding: 0.5rem;
+    margin-right: 2rem;
+    width: 90px;
+    /* border-radius: 5px;*/
+
+}
+
+.sesion-list a {
+    padding: 0.2rem;
+    font-size: 0.7rem;
+    color: white;
+}
+
+
+.sesion-btn {
+    display: none;
+    padding: 0.5rem;
+
+}
+
+
+.sesion-list {
+    display: none;
+}
+
+
+.fa-user {
+    height: 45px;
+    width: 45px;
+    /* border-radius: 25px;*/
+    color: white;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    border: none;
+}
+
+/*Fin Botón cerrar sesón*****************************************************/
+.title-bold{
+    font-weight: bold;
+}
+
+.history-container {
+    max-width: 80%;
+    margin: 2rem auto;
+    border: 1px solid #ccc;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    background-color: #DDECF9;
+}
+
+.title-container {
+    display: flex;
+    align-content: flex-start;
+    float: left;
+    width: 50%;
+}
+
+.title-container p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    padding-top: 3px;
+    color: #23426B;
+}
+
+.add-btn-box {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+
+}
+
+.add-btn {
+    display: flex;
+    background-color: #4CAF50;
+    color: #ffffff;
+    width: 150px;
+    padding: 0.5rem;
+    cursor: pointer;
+    justify-content: center;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+}
+
+.add-btn:active {
+    background-color: green;
+}
+
+
+.search-box {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.search {
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+    width: 20%;
+    align-items: flex-end;
+    margin: 1rem;
+}
+
+.search input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid grey;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+
+.search button {
+    padding: 10px;
+    background: #23426B;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background: #0b7dda;
+}
+
+.table-container {
+    max-width: 100%;
+    overflow-x: scroll;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+/*Tabla estilo cebra*/
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+
+table .sticky {
+    position: sticky;
+    right: 0;
+    min-width: 200px;
+
+}
+
+table tr .sticky {
+    background: white;
+}
+
+tr:nth-child(even) .sticky {
+    background-color: #f2f2f2;
+}
+
+
+/*Botones de Acción*/
+.btn {
+    background-color: inherit;
+    border: none;
+    padding: 0 8px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.btn.delete:active {
+    color: darkgray;
+    outline: none;
+}
+
+.btn.edit:active {
+    color: darkgray;
+    outline: none;
+}
+
+.btn.delete {
+    color: #23426B;
+}
+
+.btn.edit {
+    color: #23426B;
+}
+
+.btn-out {
+    background-color: red;
+    border: none;
+    width: 60px;
+    height: 25px;
+    margin: 0 8px;
+    color: white;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+.btn-out:active {
+    background-color: darkred;
+    outline: none;
+}
+
+
+/*Disenio del formulario de ingreso de visitante (modal)********/
+
+/* animación zoom out para Chrome*/
+.modal-anim {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-box {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+.modal-content {
+    font-family: 'Roboto', sans-serif;
+}
+
+/********************************************************************************/
+
+/* Radio buttons para el tipo de usuario */
+
+.type-cred-box {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    border-bottom: dotted 1px gray;
+}
+
+.user-type-box {
+    padding: 1.5rem 1rem 0 1rem;
+    width: 40%;
+}
+
+.user-type-box label b {
+    font-family: 'Roboto', sans-serif;
+
+
+}
+
+.user-cred-box {
+    background-color: #F6F6F6;
+    padding: 1rem 1rem 0.5rem 1rem;
+    width: 60%;
+}
+
+.radio-container {
+    display: flex;
+    padding: 1rem 0.5rem 0 0;
+    font-size: 0.8rem;
+    position: relative;
+    padding-left: 2rem;
+    cursor: pointer;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+
+    cursor: pointer;
+}
+
+
+.checkmark {
+    position: absolute;
+    left: 0.5rem;
+    padding: 0.5rem;
+    height: 16px;
+    width: 16px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.radio-container:hover input ~ .checkmark {
+    background-color: #ccc;
+
+}
+
+.radio-container input:checked ~ .checkmark {
+    background-color: #23426B;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+
+}
+
+.radio-container input:checked ~ .checkmark:after {
+    display: block;
+
+
+}
+
+.radio-container .checkmark:after {
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+
+}
+
+.user-code-box {
+    padding-top: 3rem;
+}
+
+.pea-container {
+    margin: 1rem;
+}
+
+label {
+    font-size: 0.9rem;
+}
+
+.tel-email-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tel-box {
+    width: 50%;
+    padding: 0 0.5rem 0 0;
+}
+
+.email-box {
+    width: 50%;
+    padding: 0 0 0 0.5rem;
+}
+
+.input-form {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+.parking-btn {
+    color: white;
+    padding: 5px 12px;
+    background-color: #23426B;
+    border: none;
+    margin: 0 1rem 1rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.fa-angle-down {
+    justify-content: center;
+    align-items: center;
+    padding-left: 6px
+}
+
+.parking-container {
+    margin: 1rem;
+    display: none;
+}
+
+.information {
+    display: flex;
+    justify-content: space-between;
+}
+
+.type-box {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.information select {
+    padding: 11px 20px;
+    margin: 8px 0.5rem 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    justify-content: space-around;
+}
+
+.placa-box {
+    width: 50%;
+    margin: 0 0 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.description {
+    width: 100%;
+    min-height: 6rem;
+
+}
+
+textarea {
+    margin: 8px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.modal-btns-box {
+    background-color: gainsboro;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+
+.enter-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 30%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancel-btn {
+    color: white;
+    width: auto;
+    width: 30%;
+    background-color: #f44336;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.save-btn {
+    display: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 30%;
+}
+
+
+
+/* Large screens ----------- */
+
+@media screen and (max-width: 1440px) {
+    .modal-box {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .modal-box {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .modal-box {
+        width: 70%;
+    }
+
+}
+
+/* iPads ----------- */
+@media only screen and (max-device-width : 768px) {
+    /* Styles */
+
+    .sesion-box {
+        display: none;
+    }
+
+    .sesion-btn {
+        display: block;
+    }
+
+    .title-box h1 {
+        font-family: 'Roboto', sans-serif;
+        color: white;
+        font-size: 1.3rem;
+        padding: 1rem 2rem;
+    }
+
+    .search {
+        width: 40%;
+    }
+
+    .type-doc {
+
+        width: 40%;
+    }
+
+}
+
+
+/* Smartphones ----------- */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    .modal-box {
+        margin-top: 0;
+        margin: 1rem;
+        width: 90%;
+
+    }
+
+    .modal {
+        padding-top: 0;
+    }
+
+    header {
+        padding: 0.5rem;
+    }
+
+    textarea {
+        margin: 5px 0 0;
+    }
+
+    .title-box > h1 {
+        padding: 1.1rem 0 1rem 1rem;
+        font-size: 1rem;
+    }
+
+    .type-cred-box {
+        display: block;
+    }
+
+    .user-type-box {
+        width: 100%;
+        display: flex;
+    }
+
+    .user-code-box {
+        padding: 0.5rem 0 0.5rem 0.5rem;
+        width: 50%;
+
+    }
+
+    .u-type {
+        padding: 0.5rem 0.5rem 0.5rem 0;
+        width: 50%;
+    }
+
+    .radio-container {
+        padding-top: 0.5rem;
+    }
+
+    label {
+        font-size: 0.8rem;
+    }
+
+    .input-form {
+        width: 100%;
+        padding: 0.3rem;
+
+    }
+
+    .user-code-box {
+        padding-top: 0.5rem;
+    }
+
+
+    .user-type-box {
+        padding: 0 0.5rem 0 0.5rem;
+        width: 100%;
+    }
+
+    .radio-container {
+        font-size: 0.7rem;
+    }
+
+    .user-cred-box {
+        width: 100%;
+        padding: 0.5rem
+    }
+
+    .pea-container {
+        margin: 0.5rem 0.5rem 0 0.5rem;
+    }
+
+    .modal-btns-box {
+        padding: 0.5rem;
+
+    }
+
+    .enter-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        width: 30%;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    .cancel-btn {
+        color: white;
+        width: auto;
+        width: 30%;
+        background-color: #f44336;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+
+}

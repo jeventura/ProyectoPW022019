@@ -1,0 +1,45 @@
+extends layout
+block content 
+      section(class="history-container")
+          div(class="table-header")
+              div(class="title-container")
+                  p Lista de #[strong personas]
+              div(class="add-btn-box")
+                  button(class="add-btn" onclick="document.getElementById('modal_id').style.display='block'") Agrega
+          div(class="table-container")
+                table(id="table_id" class="table")
+                  thead
+                      tr
+                          th Nombre
+                          th Documento
+                          th Tipo
+                          th Placa
+                          th Descripcion
+                          th Fecha/Hora entrada
+                  tbody(id="tbody_id")
+      div(id="modal_id" class="modal")
+          form(class="modal-box modal-anim")
+              div(class="modal-content")
+                  div(class="pea-container" id="pea_info")
+                      label(class="title-bold" for="name") Nombre
+                      input(class="input-form" type="text" placeholder="Nombre" id="name" name="name" )
+                      label(class="title-bold" for="document") Documento
+                      input(class="input-form" type="text" placeholder="Número de documento" id="doc" name="doc")
+                  button(type="button" class="parking-btn" onclick='showHide("parking_info")') Parqueo
+                    span(class="fas fa-angle-down")
+                  div(class="parking-container" id="parking_info")
+                    div(class="information")
+                          div(class="type-box")
+                              label(class="title-bold" for="type") Tipo
+                              select(name="type" id="type")
+                                  option(value="Auto") Automovil
+                                  option(value="Moto") Motocicleta
+                          div(class="placa-box")
+                              label(for="placa" class="title-bold") Placa
+                              input(class="input-form" type="text" placeholder="Número de placa" id="placa" name="placa" required)
+                      label(class="title-bold" for="description") Descripción
+                      textarea(class="description" id="description" name="description")
+              div(class="modal-btns-box")
+                  button(type="button" class="cancel-btn" onclick="document.getElementById('modal_id').style.display='none'") Cancelar
+                  button(class="enter-btn" id="enter_btn" type="button") Entra
+                  button(class="save-btn" id="save_btn" type="submit") Guardar
