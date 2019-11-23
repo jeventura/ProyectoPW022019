@@ -12,10 +12,10 @@ var indexRouter2 = require('./routes/user');
 
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://luis2:luis2@cluster0-dqszl.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
+  const collection = client.db("luis").collection("Cluster0");
+  console.log("Connected");
   client.close();
 });
 
@@ -27,7 +27,10 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'jade'); //motor de plantillas
+app.get("/", function(req, res){
+  res.render("sadmin");
+});
 
 app.use(logger('dev'));
 app.use(express.json());
