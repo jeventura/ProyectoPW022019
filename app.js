@@ -3,15 +3,24 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const config =require("./bin/config");
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var indexRouter = require('./routes/visitante');
 var indexRouter2 = require('./routes/user');
 
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://luis2:luis2@cluster0-dqszl.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+
 var app = express();
-config.connect();
 
 
 
