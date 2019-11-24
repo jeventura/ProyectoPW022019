@@ -11,27 +11,9 @@
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
-    "jade": "^1.11.0",
-    "mongodb": "^3.3.4",
+    "jade": "~1.11.0",
     "mongoose": "^5.7.10",
     "morgan": "~1.9.0",
     "nodemon": "^1.19.4"
-  },
-  "description": "Parcial Final",
-  "main": "app.js",
-  "bin": {
-    "proyectopw0219": "config.js"
-  },
-  "directories": {
-    "doc": "docs"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {},
-  "homepage": "e"
+  }
 }
