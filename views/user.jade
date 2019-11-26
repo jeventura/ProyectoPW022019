@@ -18,28 +18,48 @@ block content
                           th Fecha/Hora entrada
                   tbody(id="tbody_id")
       div(id="modal_id" class="modal")
-          form(class="modal-box modal-anim")
+          form(class="modal-box modal-anim" id="Registro") 
               div(class="modal-content")
                   div(class="pea-container" id="pea_info")
-                      label(class="title-bold" for="name") Nombre
-                      input(class="input-form" type="text" placeholder="Nombre" id="name" name="name" )
-                      label(class="title-bold" for="document") Documento
-                      input(class="input-form" type="text" placeholder="Número de documento" id="doc" name="doc")
+                      label(class="title-bold" for='nombre') Nombre
+                      input(id="nombre" class="input-form" type='text' placeholder='Nombre' name='nombre' required) 
+                      label( class="title-bold" for='documento') Documento
+                      input(id="documento" class="input-form" type='text' placeholder='Número de documento' name='documento' required)
                   button(type="button" class="parking-btn" onclick='showHide("parking_info")') Parqueo
                     span(class="fas fa-angle-down")
                   div(class="parking-container" id="parking_info")
                     div(class="information")
                           div(class="type-box")
-                              label(class="title-bold" for="type") Tipo
-                              select(name="type" id="type")
+                              label(class="title-bold" for="tipo") Tipo
+                              select(name="tipo" id="tipo")
                                   option(value="Auto") Automovil
                                   option(value="Moto") Motocicleta
                           div(class="placa-box")
                               label(for="placa" class="title-bold") Placa
-                              input(class="input-form" type="text" placeholder="Número de placa" id="placa" name="placa" required)
-                      label(class="title-bold" for="description") Descripción
-                      textarea(class="description" id="description" name="description")
+                              input(class="input-form" type="text" placeholder="Número de placa" id="placa" name="placa")
+                      label(class="title-bold" for="descripcion") Descripción
+                      textarea(class="description" id="descripcion" name="descripcion")
               div(class="modal-btns-box")
                   button(type="button" class="cancel-btn" onclick="document.getElementById('modal_id').style.display='none'") Cancelar
-                  button(class="enter-btn" id="enter_btn" type="button") Entra
-                  button(class="save-btn" id="save_btn" type="submit") Guardar
+                  button(class="enter-btn" id="enter_btn" type="submit" onclick="document.getElementById('modal_id').style.display='none'") Guardar
+    
+      div(class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+        div(class="modal-dialog" role="document")
+          div(class="modal-content")
+            div(class="modal-header")
+              h5(class="modal-title" id="exampleModalLabel") Actualizar
+              button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                span(aria-hidden="true") &times;
+            form(action="" method="post" name="formUpdate")
+              div(class="modal-body")
+                input(type="hidden" name="_id")
+                input(type="text" name="nameU" placeholder="Nombre" class="form-control")
+                input(type="text" name="docU" placeholder="Documento" class="form-control mt-1")
+                input(type="text" name="typeU" placeholder="Vehiculo, motocicleta" class="form-control mt-2")
+                input(type="text" name="placaU" placeholder="Numero de placa" class="form-control mt-3")
+                input(type="text" name="descriptionU" placeholder="Descripcion" class="form-control mt-4")
+              div(class="modal-footer")
+                button(type="button" class="btn btn-secondary" data-dismiss="modal") Close
+                input(type="submit" value="Actualizar" class="btn btn-primary")
+
+      
