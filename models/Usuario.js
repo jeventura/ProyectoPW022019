@@ -2,48 +2,48 @@ const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var UsuarioSchema = Schema({
-    Usuario: {
+    usuario: {
         type: String,
         required: true,
         min: [3, "Introduzca su usuario"],
        
     },
 
-    Contrasena:{
+    contrasena:{
         type: String,
-        required: false, validate: /(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}/,
+        required: true, validate: /(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}/,
         min: [8, "Introduzca su password"],
        
     },
 
-    Confirmarcontrasena:{
+    confirmarcontrasena:{
         type: String,
-        required: false, validate: /(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}/,
+        required: true, validate: /(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}/,
         min: [8, "Confirme nuevamente su password"],
        
     },
 
-    Tipousuario:{
+    tipousuario:{
         type: String,
         
        
     },
 
-    Codigo:{
+    codigo:{
         type: String,
         required: true,
         min: [3, "Ingrese su codigo"],
        
     },
 
-    Nombre: {
+    nombre: {
         type: String,
         required: true,
         min: [3, "Introduzca un nombre completo"],
        
     },
 
-    Documento: {
+    documento: {
         type: String,
         required: true,
         unique:true,
@@ -51,13 +51,13 @@ var UsuarioSchema = Schema({
     },
     
 
-    Telefono:{
+    telefono:{
         type: String, 
         required: false, validate: /^\d{8}$/,
         min: [8, 'formato incorrecto'],
     },
 
-    Correo:{
+    correo:{
         type: String,
         required: false, validate:/([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}/,
         min:[12, 'Introduzca un correo electronico']
@@ -65,4 +65,4 @@ var UsuarioSchema = Schema({
     }
 }
 );
-module.exports = mongoose.model("Usuario", UsuarioSchema);
+module.exports = mongoose.model("user", UsuarioSchema);

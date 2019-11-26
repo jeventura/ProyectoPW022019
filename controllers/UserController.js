@@ -1,100 +1,70 @@
+const User =require('../models/Visitante');
+const userController = {};
 
-const User =require("./../models/Usuario");
-
-
-const insert =(req, res)=>{
-    const usuario = new User(req.body);
-    usuario.save ((error, documents)=>{
-        if(error)
-            return res.status(500).json({
-                msg:"Hubo un error"
-            });
-        return res.status(201).json({
-            msg: "Creado",
-            user:documents
-        });
-    });
-};
-
-
-const getOneUser= (req,res)=>{
-    User.findById(req.params.id, (error, documents)=>{
-        if(error)
-            return res.status(500).json({
-                msg:"Hubo un error"
-            });
-        return res.status(200).json({
-            msg:"Ok",
-            users:documents
-        });
-    });
+userController.getUser = async function (req, res, next) {
+    let user = await User.find();
+    return res.status(200).json(user);
 }
 
 
-const getUser = (req,res)=>{
-    User.find({}, (error, documents)=>{
-        if(error)
-            return res.status(500).json({
-                msg:"Hubo un error"
-            });
-        return res.status(200).json({
-            msg:"Ok",
-            users:documents
-        });
+userController.getOneUser = async function (req, res, next) {
+    let { id } = req.params;
+    let user = await User.findById(id).catch(err => {
+        return next(res);
     });
-};
+    return res.status(200).json(user);
+}
 
+userController.insert = async function (req, res, next) {
+    let user = new User();
+    user.usuario = req.body.usuario;
+    user.contrasena = req.body.contrasena;
+    user.confirmarcontrasena = req.body.confirmarcontrasena;
+    user.tipodeusuario = req.body.tipodeusuario;
+    user.codigo = req.body.codigo;
+    user.nombre = req.body.nombre;
+    user.documento = req.body.documento;
+    user.telefono = req.body.telefono;
+    user.correo = req.body.correo;
 
-const update = (req, res)=>{
-    let user = req.body
-    
-    if(!user._id){
-        return res.status(400).json({
-            message: "Id is needed",
-        }); 
+    try {
+        await user.save();
+        return res.status(200).json({ "message": "Usuario agregado con exito" });
+    } catch (err) {
+        return res.status(500).json({ err: err, message: "Por favor revise sus datos" });
     }
 
-    User.update({_id: user._id}, user)
-        .then(value =>{
-            res.status(200).json({
-                message: "Update register was successful"
-            });
-        })
-        .catch((err)=>{
-            res.status(500).json({
-                message: "Something happend trying to update the Register"
-            });
-        })
-
 }
-//Elimina un elemento por su id
-const deleteById = (req, res)=>{
-    let user = req.body;
 
-    if(!user._id){
-        return res.status(400).json({
-            message: "Id is needed",
-        }); 
+userController.update = async function (req, res, next) {
+    let { id } = req.params;
+    let user = {
+        usuario: req.body.usuario,
+        contrasena: req.body.contrasena,
+        confirmarcontrasena: req.body.confirmarcontrasena,
+        tipodeusuario: req.body.tipodeusuario,
+        codigo: req.body.codigo,
+        nombre: req.body.nombre,
+        documento: req.body.documento,
+        telefono: req.body.telefono,
+        correo: req.body.correo
+
     }
-
-    User.deleteOne({_id:user._id})
-        .then(deleted=>{
-            res.status(200).json({
-                message: "Delete register was successful"
-            });
-        })
-        .catch(err=>{
-            res.status(500).json({
-                message: "Something happend trying to delete the Register"
-            });
-        })
+    console.log(user);
+    try {
+        await User.update({ _id: id }, user);
+        res.status(200).json({ "message": "Usuario actualizado con exito" });
+    }
+    catch (err) {
+        return res.status(500).json({ err: err, message: "Por favor revise sus datos" });
+    }
 }
 
-module.exports={
-    getUser,
-    insert,
-    getOneUser,
-    update,
-    deleteById
-    
-};
+userController.deleteById  = async function (req, res, next) {
+    let { id } = req.params;
+    await User.remove({ _id: id });
+    res.status(200).json({ "message": "Usuario Eliminado con exito" });
+}
+
+module.exports = visitanteController;
+
