@@ -7,14 +7,11 @@ const config =require("./bin/config");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var indexRouter = require('./routes/visitante');
-var indexRouter2 = require('./routes/user');
+var visitanteRouter = require('./routes/visitante');
+var userRouter = require('./routes/user');
 
 var app = express();
 config.connect();
-
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,8 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/', indexRouter);
-app.use('/', indexRouter2);
+app.use('/visitante', visitanteRouter);
+app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -49,4 +46,3 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
-
