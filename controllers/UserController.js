@@ -1,4 +1,4 @@
-const User =require('../models/Visitante');
+const User =require('../models/Usuario');
 const userController = {};
 
 userController.getUser = async function (req, res, next) {
@@ -20,7 +20,7 @@ userController.insert = async function (req, res, next) {
     user.usuario = req.body.usuario;
     user.contrasena = req.body.contrasena;
     user.confirmarcontrasena = req.body.confirmarcontrasena;
-    user.tipodeusuario = req.body.tipodeusuario;
+    user.tipousuario = req.body.tipousuario;
     user.codigo = req.body.codigo;
     user.nombre = req.body.nombre;
     user.documento = req.body.documento;
@@ -41,8 +41,7 @@ userController.update = async function (req, res, next) {
     let user = {
         usuario: req.body.usuario,
         contrasena: req.body.contrasena,
-        confirmarcontrasena: req.body.confirmarcontrasena,
-        tipodeusuario: req.body.tipodeusuario,
+        tipousuario: req.body.tipousuario,
         codigo: req.body.codigo,
         nombre: req.body.nombre,
         documento: req.body.documento,
@@ -66,5 +65,5 @@ userController.deleteById  = async function (req, res, next) {
     res.status(200).json({ "message": "Usuario Eliminado con exito" });
 }
 
-module.exports = visitanteController;
+module.exports = userController;
 

@@ -24,7 +24,7 @@ block content
                         th(class="sticky") Acción
                 tbody(id="tbody_id")
     div(id="modal_id" class="modal")
-        form(class="modal-box modal-anim")
+        form(class="modal-box modal-anim" id="Registrar")
             div(class="modal-content")
                 div(class="type-cred-box")
                     div(class="user-cred-box")
@@ -37,7 +37,7 @@ block content
                     div(class="user-type-box")
                         div(class="u-type")
                             label(class="title-bold" for="user-type") Tipo de usuario
-                            select(name="type" id="type")
+                            select(name="user-type" id="type")
                                 option(value="Auto") Usuario
                                 option(value="Moto") Administrador
                         div(class="user-code-box")
@@ -46,7 +46,7 @@ block content
                 div(class="pea-container" id="pea_info")
                     label(class="title-bold" for="name") Nombre
                     input(class="input-form" type="text" placeholder="Nombre y apellidos" id="name" name="name")
-                    label(class="title-bold" for="dui") DUI
+                    label(class="title-bold" for="doc") DUI
                     input(class="input-form" type="text" placeholder="Número de DUI" id="dui" name="doc")
                     div(class="tel-email-box")
                         div(class="tel-box")
@@ -57,5 +57,8 @@ block content
                             input(class="input-form" type="text" placeholder="Correo electrónico" id="email" name="email")
             div(class="modal-btns-box")
                 button(type="button" class="cancel-btn" onclick="document.getElementById('modal_id').style.display='none'") Cancelar
-                button(class="enter-btn" id="enter_btn" type="button") Registrar
-                button(class="save-btn" id="save_btn" type="submit") Guardar
+                button(class="enter-btn" id="enter_btn" type="submit" onclick="document.getElementById('modal_id').style.display='none'") Guardar
+    
+    script(src='/javascripts/main3.js')
+
+    
