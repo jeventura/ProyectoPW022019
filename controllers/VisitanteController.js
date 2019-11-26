@@ -1,98 +1,61 @@
-//obtener todo
-const Register =require("../models/Visitante");
+const Visitante =require('../models/Visitante');
+const visitanteController = {};
 
-//insertar nuevos vistantes
-const insert =(req, res)=>{
-    const visitante = new Register(req.body);
-    visitante.save ((error, documents)=>{
-        if(error)
-            return res.status(500).json({
-                msg:"hubo un error"
-            });
-        return res.status(201).json({
-            msg: "creado",
-            register:documents
-        });
-    });
-};
 
-//buscar por id
-const getOneVisitante= (req,res)=>{
-    Register.findById(req.params.id, (error, documents)=>{
-        if(error)
-            return res.status(500).json({
-                msg:"hubo un error"
-            });
-        return res.status(200).json({
-            msg:"ok",
-            registers:documents
-        });
-    });
+visitanteController.getVisitante = async function (req, res, next) {
+    let visitante = await Visitante.find();
+    return res.status(200).json(visitante);
 }
 
-//funcion de todos los registros guardados en la base
-const getVisitante = (req,res)=>{
-    Register.find({}, (error, documents)=>{
-        if(error)
-            return res.status(500).json({
-                msg:"hubo un error"
-            });
-        return res.status(200).json({
-            msg:"ok",
-            registers:documents
-        });
-    });
-};
 
-const update = (req, res)=>{
-    let register = req.body
-    
-    if(!register._id){
-        return res.status(400).json({
-            message: "id is needed",
-        }); 
+visitanteController.getOneVisitante = async function (req, res, next) {
+    let { id } = req.params;
+    let visitante = await Visitante.findById(id).catch(err => {
+        return next(res);
+    });
+    return res.status(200).json(visitante);
+}
+
+visitanteController.insert = async function (req, res, next) {
+    let visitante = new Visitante();
+    visitante.nombre = req.body.nombre;
+    visitante.documento = req.body.documento;
+    visitante.tipo = req.body.tipo;
+    visitante.placa = req.body.placa;
+    visitante.descripcion = req.body.descripcion;
+
+    try {
+        await visitante.save();
+        return res.status(200).json({ "message": "Usuario agregado con exito" });
+    } catch (err) {
+        return res.status(500).json({ err: err, message: "Por favor revise sus datos" });
     }
 
-    Register.update({_id: register._id}, register)
-        .then(value =>{
-            res.status(200).json({
-                message: "update register was successful"
-            });
-        })
-        .catch((err)=>{
-            res.status(500).json({
-                message: "Something happend trying to update the Register"
-            });
-        })
-
 }
 
-const deleteById = (req, res)=>{
-    let register = req.body;
-
-    if(!register._id){
-        return res.status(400).json({
-            message: "id is needed",
-        }); 
+visitanteController.update = async function (req, res, next) {
+    let { id } = req.params;
+    let visitante = {
+        nombre: req.body.nombre,
+        documento: req.body.documento,
+        tipo: req.body.tipo,
+        placa: req.body.placa,
+        decripcion: req.body.descripcion
     }
-
-    Register.deleteOne({_id:register._id})
-        .then(deleted=>{
-            res.status(200).json({
-                message: "delete register was successful"
-            });
-        })
-        .catch(err=>{
-            res.status(500).json({
-                message: "Something happend trying to delete the Register"
-            });
-        })
+    console.log(visitante);
+    try {
+        await Visitante.update({ _id: id }, visitante);
+        res.status(200).json({ "message": "Usuario actualizado con exito" });
+    }
+    catch (err) {
+        return res.status(500).json({ err: err, message: "Por favor revise sus datos" });
+    }
 }
 
-module.exports={
-    getVisitante,
-    insert,
-    getOneVisitante,
-    update,
-    deleteById  
-};
+visitanteController.deleteById  = async function (req, res, next) {
+    let { id } = req.params;
+    await Visitante.remove({ _id: id });
+    res.status(200).json({ "message": "Usuario Eliminado con exito" });
+}
+
+module.exports = visitanteController;
