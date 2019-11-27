@@ -1,0 +1,36 @@
+doctype html
+html
+  head  
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie.edge")
+    title="Registro de visitantes - login"
+    link(rel='stylesheet', href='/stylesheets/login-style.css')
+    link(href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montez&display=swap" rel="stylesheet")
+    script(src="https://kit.fontawesome.com/07bd293ac9.js" crossorigin="anonymous")
+    link(href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet")
+    
+  body
+    
+    .container
+    
+      img.bg-image(src='img/background.png')
+      //background-image:url(${require("img/background.png")})
+      section.logo-box
+        img(src='img/logo-uca2.png', alt='uca')
+      section.login-box
+        form(action='main.html')
+          h1.title(style='font-size: 20sp') Inicio de sesión
+          br
+          .input-container
+            .icon
+              i.fas.fa-user
+            .input-text
+              input.input(name='usuario', type='text', placeholder='Usuario')
+          .input-container
+            .icon
+              i.fas.fa-lock
+            .input-text
+              input.input(name='contraseña', type='password', placeholder='Contraseña')
+          input.btn(type='submit', value='Ingresar')
+    

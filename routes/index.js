@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('sadmin');
 });
 router.get('/login', function(req, res, next) {
-  res.render('admin');
+  res.render('login');
 });
 
 
