@@ -42,25 +42,6 @@ block content
               div(class="modal-btns-box")
                   button(type="button" class="cancel-btn" onclick="document.getElementById('modal_id').style.display='none'") Cancelar
                   button(class="enter-btn" id="enter_btn" type="submit" onclick="document.getElementById('modal_id').style.display='none'") Guardar
-    
-      div(class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
-        div(class="modal-dialog" role="document")
-          div(class="modal-content")
-            div(class="modal-header")
-              h5(class="modal-title" id="exampleModalLabel") Actualizar
-              button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-                span(aria-hidden="true") &times;
-            form(action="" method="post" name="formUpdate")
-              div(class="modal-body")
-                input(type="hidden" name="_id")
-                input(type="text" name="nameU" placeholder="Nombre" class="form-control")
-                input(type="text" name="docU" placeholder="Documento" class="form-control mt-1")
-                input(type="text" name="typeU" placeholder="Vehiculo, motocicleta" class="form-control mt-2")
-                input(type="text" name="placaU" placeholder="Numero de placa" class="form-control mt-3")
-                input(type="text" name="descriptionU" placeholder="Descripcion" class="form-control mt-4")
-              div(class="modal-footer")
-                button(type="button" class="btn btn-secondary" data-dismiss="modal") Close
-                input(type="submit" value="Actualizar" class="btn btn-primary")
       
       script(src='/javascripts/main2.js')
 

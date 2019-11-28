@@ -59,6 +59,44 @@ block content
                 button(type="button" class="cancel-btn" onclick="document.getElementById('modal_id').style.display='none'") Cancelar
                 button(class="enter-btn" id="enter_btn" type="submit" onclick="document.getElementById('modal_id').style.display='none'") Guardar
     
+
+    div(id="modal_update" class="modal")
+        form(class="modal-box modal-anim" id="modal_update_form" name="formUpdate")
+            div(class="modal-content")
+                input(type="hidden" name="_id")
+                div(class="type-cred-box")
+                    div(class="user-cred-box")
+                        label(class="title-bold" for="usernameU") Usuario
+                        input(class="input-form" type="text" placeholder="Usuario" id="usernameU" name="usernameU")
+                        label(class="title-bold" for="pwdU") Contraseña
+                        input(class="input-form" type="password" placeholder="Contraseña" id="pwdU" name="pwdU")
+                        label(class="title-bold" for="cpwdU") Confirmar contraseña
+                        input(class="input-form" type="password" placeholder="Contraseña" id="cpwdU" name="cpwdU")
+                    div(class="user-type-box")
+                        div(class="u-type")
+                            label(class="title-bold" for="type") Tipo de usuario
+                            select(name="typeU" id="typeU")
+                                option(value="Auto") Usuario
+                                option(value="Moto") Administrador
+                        div(class="user-code-box")
+                            label(class="title-bold" for="usercodeU") Código de usuario
+                            input(class="input-form" type="text" placeholder="Código" id="usercodeU" name="usercodeU")
+                div(class="pea-container" id="pea_info")
+                    label(class="title-bold" for="nameU") Nombre
+                    input(class="input-form" type="text" placeholder="Nombre y apellidos" id="nameU" name="nameU")
+                    label(class="title-bold" for="duiU") DUI
+                    input(class="input-form" type="text" placeholder="Número de DUI" id="duiU" name="duiU")
+                    div(class="tel-email-box")
+                        div(class="tel-box")
+                            label(class="title-bold" for="telU") Teléfono
+                            input(class="input-form" type="text" placeholder="Numero de teléfono" id="telU" name="telU")
+                        div(class="email-box")
+                            label(class="title-bold" for="emailU") Correo
+                            input(class="input-form" type="text" placeholder="Correo electrónico" id="emailU" name="emailU")
+            div(class="modal-btns-box")
+                button(class="cancel-btn" type='button' onclick='hideModal("modal_update")') Cancelar
+                input(type="submit" value="Actualizar" class="enter-btn" id="save_btn" onclick='hideModal("modal_update")')
+    
     script(src='/javascripts/main3.js')
 
     
