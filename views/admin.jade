@@ -1,18 +1,16 @@
 extends layout
 block content 
+  
   section(class="history-container")
     div(class="table-header")
       div(class="title-container")
         p Lista de #[strong personas]
       div(class="add-btn-box")
-        button(class="add-btn" onclick="document.getElementById('modal_id').style.display='block'") Agregar
+        button(class="add-btn" onclick="document.getElementById('modal_id').style.display='block', document.getElementById('formRegistro').reset()") Agregar
     
     div(class="search-box")
       form(class="search")
-        input(type='text' placeholder='Buscar..' name='search')
-        button(class=".btn(type='button')")
-          i(class="fa fa-search")
-    
+        input(type='text' placeholder='Buscar..' name='search' id="search_input" onkeyup="search()" class="fas")
     
     table(id="lista" class="table-container")
         thead
@@ -41,6 +39,7 @@ block content
             div(class="type-box")
               label(class="title-bold" for="type") Tipo
               select(name="type" id="type")
+                option(value="Peaton") Peaton
                 option(value="Auto") Automovil
                 option(value="Moto") Motocicleta
             div(class="placa-box")
@@ -49,27 +48,37 @@ block content
           label(class="title-bold" for='description') Descripcion
           textarea(id="description" class="description" name='description')
       div(class="modal-btns-box")
-        button(class="cancel-btn" type='button' onclick="document.getElementById('modal_id').style.display='none'") Cancelar
-        button(id="enter_btn" class="enter-btn" type='submit' onclick="document.getElementById('modal_id').style.display='none'") Guardar
+        button(class="cancel-btn" type='button' onclick='hideModal("modal_id")') Cancelar
+        button(id="enter_btn" class="enter-btn" type='submit' onclick='hideModal("modal_id")') Guardar
 
-  div(class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
-    div(class="modal-dialog" role="document")
+  div(id="modal_update" class="modal")
+    form(class="modal-box modal-anim" id="modal_update_form" name="formUpdate")
       div(class="modal-content")
-        div(class="modal-header")
-          h5(class="modal-title" id="exampleModalLabel") Actualizar
-          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-            span(aria-hidden="true") &times;
-        form(action="" method="post" name="formUpdate")
-          div(class="modal-body")
-            input(type="hidden" name="_id")
-            input(type="text" name="nameU" placeholder="Nombre" class="form-control")
-            input(type="text" name="docU" placeholder="Documento" class="form-control mt-1")
-            input(type="text" name="typeU" placeholder="Vehiculo, motocicleta" class="form-control mt-2")
-            input(type="text" name="placaU" placeholder="Numero de placa" class="form-control mt-3")
-            input(type="text" name="descriptionU" placeholder="Descripcion" class="form-control mt-4")
-          div(class="modal-footer")
-            button(type="button" class="btn btn-secondary" data-dismiss="modal") Close
-            input(type="submit" value="Actualizar" class="btn btn-primary")
+        input(type="hidden" name="_id")
+        div(class="pea-container" id="pea_info")
+          label(class="title-bold" for='name') Nombre
+          input(id="nameU" class="input-form" type='text' placeholder='Nombre' name='nameU' required) 
+          label( class="title-bold" for='document') Documento
+          input(id="docU" class="input-form" type='text' placeholder='Número de documento' name='docU' required)
+        button(class="parking-btn" type='button' onclick='showHide("parking_info_U")') Parqueo
+          span(class=".fas.fa-angle-down")
+        div(id="parking_info_U" class="parking-container")
+          div(class="information")
+            div(class="type-box")
+              label(class="title-bold" for="type") Tipo
+              select(name="typeU" id="typeU")
+                option(value="Peaton") Peaton
+                option(value="Auto") Automovil
+                option(value="Moto") Motocicleta
+            div(class="placa-box")
+              label(class="title-bold" for='placa') Placa
+              input(id="placaU" class="input-form" type='text' placeholder='Número de placa' name='placaU' )
+          label(class="title-bold" for='description') Descripcion
+          textarea(id="descriptionU" class="description" name='descriptionU')
+      div(class="modal-btns-box")
+        button(class="cancel-btn" type='button' onclick='hideModal("modal_update")') Cancelar
+        input(type="submit" value="Actualizar" class="enter-btn" id="save_btn" onclick='hideModal("modal_update")')
+
   
   script(src='/javascripts/main.js')
   

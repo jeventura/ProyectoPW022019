@@ -1,6 +1,6 @@
 var clic = 1;
 function showHide(id) {
-    if (clic == 1) {
+    if (document.getElementById(id).style.display == 'none' || clic == 1) {
         document.getElementById(id).style.display = 'block';
         clic = clic + 1;
     } else {
@@ -8,3 +8,33 @@ function showHide(id) {
         clic = 1;
     }
 }
+
+function hideModal(id) {
+    document.getElementById(id).style.display = 'none';
+    document.getElementById("modal_update_form").reset();
+    
+    document.getElementById("parking_info").style.display = 'none';
+    document.getElementById("parking_info_U").style.display = 'none';
+}
+
+
+function search() {
+    var input, cell, fltr, table, tr, td, i, j;
+    input = document.getElementById("search_input");
+    fltr = input.value.toUpperCase();
+    table = document.getElementById("lista");
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+      tr[i].style.display = "none";  
+      td = tr[i].getElementsByTagName("td");
+      for (var j = 0; j < td.length; j++) {
+        cell = tr[i].getElementsByTagName("td")[j];
+        if (cell) {
+          if (cell.innerHTML.toUpperCase().indexOf(fltr) > -1) {
+            tr[i].style.display = "";
+            break;
+          } 
+        }
+      }
+    }
+  }
