@@ -3,10 +3,13 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('sadmin');
+  res.render('admin',{ title: 'Historial de visitas' });
 });
 router.get('/login', function(req, res, next) {
-  res.render('admin');
+  res.render('admin',{ title: 'Historial de visitas' });
+});
+router.get('/login', function(req, res, next) {
+  res.render('user',{ title: 'Registro de usuarios y administradores' });
 });
 
 

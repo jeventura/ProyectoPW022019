@@ -31,7 +31,7 @@ document.forms.formUpdate.addEventListener("submit", function (e) {
     let data = {
         nombre: document.forms.formUpdate.nameU.value,
         documento: document.forms.formUpdate.docU.value,
-        tipo: document.forms.formUpdate.typeU.value,
+        tipo: document.forms.formUpdate.typeU.options[document.querySelector("#typeU").selectedIndex].text,
         placa: document.forms.formUpdate.placaU.value,
         descripcion: document.forms.formUpdate.descriptionU.value
     }
@@ -50,6 +50,7 @@ document.forms.formUpdate.addEventListener("submit", function (e) {
             alert("Por favor revise los datos ingresados");
             console.log(err);
         });
+        
 });
 
 function usuarios() {
@@ -70,7 +71,7 @@ function usuarios() {
            <td>${element.descripcion}</td>
            <td>${datetime.toLocaleString()}</td>
            <td>
-                <a href="/visitante/${element._id}" class="update btn btn-warning far fa-edit" data-toggle="modal" data-target="#exampleModal">
+                <a href="/visitante/${element._id}" class="update btn btn-warning far fa-edit" data-toggle="modal" data-target="#exampleModal" onclick="document.getElementById('modal_update').style.display='block'">
                 <a href="/visitante/${element._id}" class="delete btn btn-danger far fa-trash-alt">
            </td>
            </tr>`
@@ -90,7 +91,7 @@ function usuarios() {
                             document.forms.formUpdate._id.value = response._id;
                             document.forms.formUpdate.nameU.value = response.nombre;
                             document.forms.formUpdate.docU.value = response.documento;
-                            document.forms.formUpdate.typeU.value = response.tipo;
+                            document.forms.formUpdate.typeU.options[document.querySelector("#typeU").selectedIndex].text = response.tipo;
                             document.forms.formUpdate.placaU.value = response.placa;
                             document.forms.formUpdate.descriptionU.value = response.descripcion;
                         });
