@@ -10,10 +10,7 @@ block content
     
     div(class="search-box")
       form(class="search")
-        input(type='text' placeholder='Buscar..' name='search')
-        button(class=".btn(type='button')")
-          i(class="fa fa-search")
-    
+        input(type='text' placeholder='Buscar..' name='search' id="search_input" onkeyup="search()" class="fas")
     
     table(id="lista" class="table-container")
         thead
